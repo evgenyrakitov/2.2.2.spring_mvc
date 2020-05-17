@@ -16,14 +16,12 @@ import java.util.Locale;
 @Controller
 @RequestMapping("/")
 public class CarController {
-    @Autowired
-    MessageSource messageSource;
 
-    @Autowired
-    LocaleResolver localeResolver;
+
+
 
     @RequestMapping(value = "cars", method = RequestMethod.GET)
-    public String printCar(ModelMap model, Locale locale) {
+    public String printCar(ModelMap model) {
         model.addAttribute("message", (new CarService()).getAllCar());
         return "cars";
     }
